@@ -125,9 +125,9 @@ Future<Response> buildHttpResponse(String endPoint,
 }
 
 Future handleResponse(Response response) async {
-  if (!await isNetworkAvailable()) {
-    throw errorInternetNotAvailable;
-  }
+  // if (!await isNetworkAvailable()) {
+  //   throw errorInternetNotAvailable;
+  // }
 
   if (response.statusCode.isSuccessful()) {
     var v = MasterResponseClass.fromJson(jsonDecode(response.body));
