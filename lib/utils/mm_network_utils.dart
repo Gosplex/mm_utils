@@ -95,28 +95,28 @@ Future<Response> buildHttpResponse(String endPoint,
       response = await get(url, headers: headers);
     }
 
-    if (MmUtils.instance!.isPrintLog()) {
-      DateTime endApiCall = DateTime.now();
+    // if (MmUtils.instance!.isPrintLog()) {
+    //   DateTime endApiCall = DateTime.now();
 
-      apiURLResponseLog(
-          url: url.toString(),
-          endPoint: endPoint,
-          headers: jsonEncode(headers),
-          hasRequest: method == HttpMethod.post || method == HttpMethod.put,
-          request: jsonEncode(request),
-          encryptRequest: getEncryptRequest(request),
-          statusCode: response.statusCode.validate(),
-          encryptResponse: (MmUtils.instance!.isEncryptData())
-              ? MasterResponseClass.fromJson(jsonDecode(response.body))
-                  .requestData!
-              : "",
-          responseBody: getDecryptDataResponse(
-              MasterResponseClass.fromJson(jsonDecode(response.body))
-                  .requestData!),
-          methodType: method.name,
-          startTime: startApiCall,
-          endTime: endApiCall);
-    }
+    //   apiURLResponseLog(
+    //       url: url.toString(),
+    //       endPoint: endPoint,
+    //       headers: jsonEncode(headers),
+    //       hasRequest: method == HttpMethod.post || method == HttpMethod.put,
+    //       request: jsonEncode(request),
+    //       encryptRequest: getEncryptRequest(request),
+    //       statusCode: response.statusCode.validate(),
+    //       encryptResponse: (MmUtils.instance!.isEncryptData())
+    //           ? MasterResponseClass.fromJson(jsonDecode(response.body))
+    //               .requestData!
+    //           : "",
+    //       responseBody: getDecryptDataResponse(
+    //           MasterResponseClass.fromJson(jsonDecode(response.body))
+    //               .requestData!),
+    //       methodType: method.name,
+    //       startTime: startApiCall,
+    //       endTime: endApiCall);
+    // }
 
     return response;
   } else {
